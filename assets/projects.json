@@ -1,21 +1,21 @@
 {
-  "_comment": "Featured repos, in README order. Star/fork/language come live from the API on every run; the description here overrides the repo's GitHub description (all four of these currently have none set). Setting them on GitHub too is worth doing - it helps anyone browsing your repo list.",
+  "_comment": "Featured repos, in README order. Star/fork/language come live from the API on every run; the description here overrides the repo's GitHub description (most of these have none set). Setting them on GitHub too is worth doing - it helps anyone browsing your repo list.",
   "projects": [
     {
-      "repo": "dossier",
-      "description": "An immersive design-engineering portfolio. Fluid scroll inertia, geometric morphing, and typography that bends toward your cursor."
+      "repo": "Solar",
+      "description": "Voltix - a real-time home energy intelligence platform that fuses solar inverter telemetry, grid-side smart meter data, and on-server machine learning into one glanceable dashboard with anomaly detection and an intelligent meter advisor."
     },
     {
-      "repo": "Sage",
-      "description": "A local-first calendar that shapes your week around six productivity frameworks, with an assistant that plans according to the method you pick."
+      "repo": "COnstruction-app",
+      "description": "A smart construction expense management system that tracks project costs, materials, labour, and budgets in real time - financial control and efficient project execution in a single dashboard."
     },
     {
-      "repo": "Socrates",
-      "description": "Learn by teaching. Explain a concept to the AI, get caught on the parts you only half-understand, and prove you actually know it."
+      "repo": "portfolio-website-builder",
+      "description": "A React + Vite portfolio builder that lets anyone design, customize, preview, and export a deploy-ready personal portfolio website - no code required."
     },
     {
-      "repo": "humanOS",
-      "description": "A gamified operating system for your life. Goals as interactive orbits, habit and mood tracking, and Gemini breaking objectives into daily tasks."
+      "repo": "HOME-ROUTER",
+      "description": "Router Kawaii - an Electron desktop control centre for managing multiple home network routers through one unified interface."
     }
   ]
 }
