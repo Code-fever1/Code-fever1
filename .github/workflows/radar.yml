@@ -1,0 +1,38 @@
+name: Radar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Skill radar
+        run: python scripts/radar.py --data assets/skills.json -o assets/radar
+
+      - name: Language radar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/radar.py --github ${{ github.repository_owner }} -o assets/radar-langs --values
+
+      - name: Commit radar charts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/radar*.svg
+          if git diff --staged --quiet; then
+            echo "No radar changes"
+          else
+            git commit -m "chore: update radar charts"
+            git push
+          fi
