@@ -76,6 +76,22 @@ The current one was made with:
 python scripts\dotify.py assets\jacket.png -o assets\portrait --cols 100 --equalize --detail 0.5 --color --reveal
 ```
 
+If the photo is dark (shadows/face coming out black), lift the shadows first so both the
+dot sizes and the dot colours stay true — gamma on the RGB, alpha untouched:
+
+```python
+from PIL import Image
+import numpy as np
+im = Image.open("assets/jacket.png").convert("RGBA")
+a = np.array(im).astype(np.float32)
+a[..., :3] = 255.0 * (a[..., :3] / 255.0) ** 0.35   # 0.35–0.5, lower = brighter
+Image.fromarray(a.astype(np.uint8), "RGBA").save("assets/jacket-bright.png")
+```
+
+then run `dotify.py` on `assets/jacket-bright.png` with the same flags. The in-photo
+`--color` dots use the raw pixels, so brightening the source is the only way to fix
+colours — `--gamma` alone only changes dot size, not colour.
+
 Other looks from the same source:
 
 ```powershell
